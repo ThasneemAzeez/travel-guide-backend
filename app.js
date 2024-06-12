@@ -13,6 +13,14 @@ app.get("/",(req,res)=>{
     res.send("hello")
 })
 
+app.post("/add",(req,res)=>{
+    let input=req.body
+    let travel=new travelmodel(input)
+    travel.save()
+    res.json({"status":"success"})
+})
+
+
 app.listen(8080,()=>{
     console.log("server started")
 })
