@@ -31,6 +31,22 @@ app.post("/search",(req,res)=>{
     })
 })
 
+app.post("/delete",(req,res)=>{
+    let input=req.body
+    travelmodel.findByIdAndDelete(input).then(
+        (response)=>{
+            res.json({"status":"success"})
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+    
+        }
+    )
+
+
 app.get("/view",(req,res)=>{
     travelmodel.find().then(
         (data)=>{
