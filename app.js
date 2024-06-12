@@ -20,6 +20,15 @@ app.post("/add",(req,res)=>{
     res.json({"status":"success"})
 })
 
+app.get("/view",(req,res)=>{
+    travelmodel.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch((error)=>{
+        res.json(error)
+    })
+})
 
 app.listen(8080,()=>{
     console.log("server started")
